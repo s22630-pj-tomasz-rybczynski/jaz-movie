@@ -1,5 +1,7 @@
 package pl.rybczynski.demo.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +13,8 @@ public class Movie {
     private Long id;
     private String title;
     private Category category;
+    @NotNull
+    private Boolean isAvailable;
 
     public Movie() {};
 
