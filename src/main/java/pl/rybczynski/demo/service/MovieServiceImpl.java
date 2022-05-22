@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.rybczynski.demo.model.Movie;
 import pl.rybczynski.demo.repository.MovieRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,9 +18,7 @@ public class MovieServiceImpl implements MovieService{
 
     @Override
     public List<Movie> findAll() {
-        List<Movie> result = new ArrayList<Movie>();
-        movieRepo.findAll().forEach(result::add);
-        return result;
+        return movieRepo.findAll();
     }
 
     @Override
