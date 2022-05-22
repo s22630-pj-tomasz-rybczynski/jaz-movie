@@ -15,4 +15,6 @@ public interface MovieService {
     Optional<Movie> updateMovie(long id, Movie movie);
 
     void deleteMovie(long id);
+
+    void setAvailable(long id);
 }

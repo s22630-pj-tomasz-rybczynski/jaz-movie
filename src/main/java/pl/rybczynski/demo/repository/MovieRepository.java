@@ -26,4 +26,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Modifying
     @Query("delete from Movie m where m.id=?1")
     void deleteById(Long id);
+
+    @Modifying
+    @Query("update Movie m set m.isAvailable = true where m.id = ?1")
+    void setAvailable(Long id);
 }

@@ -14,7 +14,7 @@ public class Movie {
     private String title;
     private Category category;
     @NotNull
-    private Boolean isAvailable;
+    private Boolean isAvailable = false;
 
     public Movie() {};
 
