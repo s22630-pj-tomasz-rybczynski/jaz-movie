@@ -35,7 +35,7 @@ public class MovieServiceImpl implements MovieService{
     public Optional<Movie> updateMovie(long id, Movie movie) {
         Optional<Movie> movieById = findById(movie.getId());
 
-        return movieById.map(m -> movieRepo.save(new Movie(id, movie.getTitle(), movie.getCategory())));
+        return movieById.map(m -> movieRepo.save(new Movie(id, movie.getTitle(), movie.getCategory(), movie.getAvailable())));
     }
 
     @Override
@@ -46,5 +46,10 @@ public class MovieServiceImpl implements MovieService{
     @Override
     public void setAvailable(long id) {
         movieRepo.setAvailable(id);
+    }
+
+    @Override
+    public void setUnavailable(long id) {
+        movieRepo.setUnavailable(id);
     }
 }

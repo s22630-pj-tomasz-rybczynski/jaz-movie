@@ -17,4 +17,6 @@ public interface MovieService {
     void deleteMovie(long id);
 
     void setAvailable(long id);
+
+    void setUnavailable(long id);
 }

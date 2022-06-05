@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import pl.rybczynski.demo.model.Category;
 import pl.rybczynski.demo.model.Movie;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,12 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     void deleteById(Long id);
 
     @Modifying
+    @Transactional
     @Query("update Movie m set m.isAvailable = true where m.id = ?1")
     void setAvailable(Long id);
+
+    @Modifying
+    @Transactional
+    @Query("update Movie m set m.isAvailable = false where m.id = ?1")
+    void setUnavailable(Long id);
 }

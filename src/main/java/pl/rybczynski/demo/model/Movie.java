@@ -14,23 +14,29 @@ public class Movie {
     private String title;
     private Category category;
     @NotNull
+    @Column(columnDefinition = "boolean default false", nullable = false)
     private Boolean isAvailable = false;
 
     public Movie() {};
 
-    public Movie(String title, Category category) {
+    public Movie(String title, Category category, Boolean isAvailable) {
         this.title = title;
         this.category = category;
+        this.isAvailable = isAvailable;
     }
 
-    public Movie(Long id, String title, Category category) {
+    public Movie(Long id, String title, Category category, Boolean isAvailable) {
         this.id = id;
         this.title = title;
         this.category = category;
+        this.isAvailable = isAvailable;
     }
 
     public Long getId() {
         return id;
+    }
+    public Boolean getAvailable() {
+        return isAvailable;
     }
 
     public void setId(Long id) {
